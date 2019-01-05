@@ -6,14 +6,6 @@ spring:
     datasource:
       driver-class-name: com.mysql.jdbc.Driver
 
-      druid:
-        stat-view-servlet:
-          login-username: mytest
-          login-password: 123456
-        initial-size: 5
-        min-idle: 10
-        max-active: 20
-
     http:
       multipart:
         maxFileSize: 10Mb
