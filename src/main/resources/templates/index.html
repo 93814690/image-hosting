@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>ImageHosting</title>
+  <link href="css/bootstrap.css" rel="stylesheet">
+
+  <link href="css/fileinput.css" media="all" rel="stylesheet" type="text/css"/>
+
+  <link href="css/theme.css" media="all" rel="stylesheet" type="text/css"/>
+  <link href="css/ymq/footer.css" media="all" rel="stylesheet" type="text/css"/>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/sortable.js" type="text/javascript"></script>
+  <script src="js/fileinput.js" type="text/javascript"></script>
+
+  <script src="js/zh.js" type="text/javascript"></script>
+  <script src="js/theme.js" type="text/javascript"></script>
+  <script src="js/bootstrap.min.js" type="text/javascript"></script>
+
+</head>
+<body style="padding-top: 30px">
+
+<div th:include="header :: header"></div>
+
+<div class="container kv-main">
+  <div class="page-header">
+    <h1>My Image Hosting</h1> 每个图片最大 10 MB,每个请求最多10个文件
+  </div>
+
+  <form enctype="multipart/form-data">
+    <div class="form-group">
+      <input id="file" type="file" multiple class="file-loading" data-overwrite-initial="false" data-min-file-count="1"
+             data-max-file-count="10" name="file" accept="image/*">
+    </div>
+  </form>
+
+  <div id="showurl" style="display: none;">
+    <h3 id="error"></h3>
+
+    <ul id="navTab" class="nav nav-tabs">
+      <li class="active"><a href="#htmls" data-toggle="tab">HTML</a></li>
+      <li><a href="#markdowns" data-toggle="tab">Markdown</a></li>
+      <li><a href="#markdownlinks" data-toggle="tab">Markdown with Link</a></li>
+      <li><a href="#urls" data-toggle="tab">URL</a></li>
+    </ul>
+    <div id="navTabContent" class="tab-content">
+      <div class="tab-pane fade in active" id="htmls">
+        <pre style="margin-top: 5px;"><code id="html"></code></pre>
+      </div>
+      <div class="tab-pane fade" id="markdowns">
+        <span style="margin-top: 5px;"><span id="markdown"></span></span>
+      </div>
+      <div class="tab-pane fade" id="markdownlinks">
+        <pre style="margin-top: 5px;"><code id="markdownlink"></code></pre>
+      </div>
+      <div class="tab-pane fade" id="urls">
+        <pre style="margin-top: 5px;"><code id="url"></code></pre>
+      </div>
+
+    </div>
+    <br>
+    <br>
+    <br>
+  </div>
+</div>
+
+<script src="js/ymq/index.js" type="text/javascript"></script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+  <meta charset="UTF-8"/>
+
+  <title>登录界面</title>
+
+  <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css"
+      rel="stylesheet" />
+  <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+  <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+<h4 th:text="${msg}">错误信息：</h4>
+
+<form class="well" action="/user/login" method="post" style="width: 30em; margin: 150px auto auto;">
+  <h3>用户登录</h3>
+  <div class=" input-group input-group-md">
+    <span class="input-group-addon">
+      <i class="glyphicon glyphicon-user"></i>
+    </span>
+    <input name="username" type="text" class="form-control"/>
+
+  </div>
+  <br/>
+  <div class="input-group input-group-md">
+    <span class="input-group-addon">
+      <i class="glyphicon glyphicon-lock"></i>
+    </span>
+    <input type="password" name="password" class="form-control"/>
+  </div>
+  <br/>
+  <button type="submit" id="bn" class="btn btn-success btn-block">登录</button>
+  <!--<a class="btn btn-sm btn-white btn-block" style="text-align: right;" th:href="@{register}" href="register.html"><h6>-->
+  <!--还没有账户？前往注册</h6></a>-->
+</form>
+</body>
+
+</html>

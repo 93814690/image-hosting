@@ -1,0 +1,44 @@
+spring:
+    profiles:
+      # 多个之间用逗号分隔
+      active: prod
+
+    datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+
+      druid:
+        stat-view-servlet:
+          login-username: mytest
+          login-password: 123456
+        initial-size: 5
+        min-idle: 10
+        max-active: 20
+
+    http:
+      multipart:
+        maxFileSize: 10Mb
+        maxRequestSize: -1
+
+    thymeleaf:
+      cache: false
+      mode: LEGACYHTML5
+
+mybatis:
+  #注意：一定要对应mapper映射xml文件的所在路径
+  mapper-locations: classpath:mapping/*.xml
+  # 注意：对应实体类的路径
+  type-aliases-package: top.liyf.model
+
+#pagehelper分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+#OSS配置
+image-properties:
+  endpoint:
+  keyid:
+  keysecret:
+  bucketname:
