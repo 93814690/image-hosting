@@ -28,9 +28,3 @@ pagehelper:
   supportMethodsArguments: true
   params: count=countSql
 
-#OSS配置
-image-properties:
-  endpoint:
-  keyid:
-  keysecret:
-  bucketname:

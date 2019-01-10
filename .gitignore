@@ -24,4 +24,3 @@
 /nbdist/
 /.nb-gradle/
 /src/main/resources/rebel.xml
-/src/main/resources/application-prod.yml
