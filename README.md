@@ -4,8 +4,6 @@
 # 配置
 修改 
 
-* OSS配置
-
 * application-prod.yml (配置项与 application-dev.yml 相同)
 
 即可
