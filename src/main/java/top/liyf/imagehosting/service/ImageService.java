@@ -1,7 +1,7 @@
 package top.liyf.imagehosting.service;
 
 import org.springframework.web.multipart.MultipartFile;
-import top.liyf.imagehosting.result.ResultBean;
+import top.liyf.imagehosting.model.ImageSearchParam;
 
 import java.util.Map;
 
@@ -12,5 +12,5 @@ import java.util.Map;
 public interface ImageService {
     Map upload(MultipartFile file);
 
-    Map getImagesList(String name, Integer pageNum, Integer pageSize);
+    Map getImagesList(ImageSearchParam searchParam, Integer pageNum, Integer pageSize);
 }

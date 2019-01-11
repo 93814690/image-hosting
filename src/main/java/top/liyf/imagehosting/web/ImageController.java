@@ -1,9 +1,11 @@
 package top.liyf.imagehosting.web;
 
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import top.liyf.imagehosting.model.ImageSearchParam;
 import top.liyf.imagehosting.result.ResultBean;
 import top.liyf.imagehosting.service.ImageService;
 
@@ -38,8 +40,10 @@ public class ImageController {
 
     @PostMapping("/imagesList")
     @ResponseBody
-    public ResultBean<Map> getImagesList(String name, Integer pageNum, Integer pageSize) {
-        return new ResultBean<>(imageService.getImagesList(name, pageNum, pageSize));
+    public ResultBean<Map> getImagesList(String params, Integer pageNum, Integer pageSize) {
+
+        ImageSearchParam search = JSONObject.parseObject(params, ImageSearchParam.class);
+        return new ResultBean<>(imageService.getImagesList(search, pageNum, pageSize));
     }
 
 

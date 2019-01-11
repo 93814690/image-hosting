@@ -24,7 +24,7 @@ $('#submitPForm').click(function () {
  * 初始化瀑布流
  */
 layui.use('flow', function () {
-    pinterest(null);
+    $('#submitPForm').click();
 });
 
 /**
@@ -49,7 +49,11 @@ function pinterest(params) {
             //数据插入
             $.ajax({
                 url: "/image/imagesList",
-                data: {params: JSON.stringify(params), pageNum: pageNum, pageSize: 8},
+                data: {
+                    params: JSON.stringify(params),
+                    pageNum: pageNum,
+                    pageSize: 8
+                },
                 type: 'post',
                 success: function (data) {
                     //console.log(data);

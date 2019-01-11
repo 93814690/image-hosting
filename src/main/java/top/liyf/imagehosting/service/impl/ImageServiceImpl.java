@@ -12,6 +12,7 @@ import top.liyf.imagehosting.dao.ImageDao;
 import top.liyf.imagehosting.dao.OperationDao;
 import top.liyf.imagehosting.exception.BusinessException;
 import top.liyf.imagehosting.model.Image;
+import top.liyf.imagehosting.model.ImageSearchParam;
 import top.liyf.imagehosting.model.OperationLog;
 import top.liyf.imagehosting.model.User;
 import top.liyf.imagehosting.result.ResultCode;
@@ -93,19 +94,18 @@ public class ImageServiceImpl implements ImageService {
     }
 
     @Override
-    public Map getImagesList(String name, Integer pageNum, Integer pageSize) {
+    public Map getImagesList(ImageSearchParam search, Integer pageNum, Integer pageSize) {
         User principal = (User) SecurityUtils.getSubject().getPrincipal();
         if (principal == null) {
             throw new BusinessException(ResultCode.NOT_LOGIN);
         }
         PageHelper.startPage(pageNum, pageSize);
-        Page<Image> list =  imageDao.getImagesList(principal.getUid(), name);
+        Page<Image> list =  imageDao.getImagesList(principal.getUid(), search);
 
-        HashMap<String, Object> map = new HashMap<>();
+        HashMap<String, Object> map = new HashMap<>(2);
         map.put("list", list.getResult());
         map.put("count", list.getTotal());
 
-        System.out.println("map = " + map);
         return map;
     }
 }
