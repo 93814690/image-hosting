@@ -11,7 +11,7 @@ import java.util.Date;
 @Data
 public class Image {
 
-    private String imageId;
+    private Long imageId;
     private String imageName;
     private Integer uid;
     private String url;
