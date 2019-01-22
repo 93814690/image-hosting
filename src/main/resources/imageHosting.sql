@@ -73,7 +73,7 @@ insert  into `role_permission`(`id`,`rid`,`pid`) values
 DROP TABLE IF EXISTS `t_image`;
 
 CREATE TABLE `t_image` (
-  `image_id` varchar(255) NOT NULL,
+  `image_id` bigint(20) unsigned NOT NULL,
   `image_name` varchar(255) NOT NULL,
   `uid` int(11) NOT NULL,
   `create_time` datetime NOT NULL,

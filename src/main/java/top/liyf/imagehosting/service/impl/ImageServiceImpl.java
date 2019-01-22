@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import top.liyf.id.KeyGenerator;
 import top.liyf.imagehosting.dao.ImageDao;
 import top.liyf.imagehosting.dao.OperationDao;
 import top.liyf.imagehosting.exception.BusinessException;
@@ -61,7 +62,7 @@ public class ImageServiceImpl implements ImageService {
         }
 
         Image image = new Image();
-        String imageId = UUID.randomUUID().toString();
+        long imageId = KeyGenerator.INSTANCE.nextId();
         image.setImageId(imageId);
         String fileName = file.getOriginalFilename();
         String suffixName = fileName.substring(fileName.lastIndexOf("."));
