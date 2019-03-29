@@ -11,16 +11,21 @@
 
 <body>
 
-<h4 th:text="${msg}">错误信息：</h4>
+
 
 <form class="well" action="/user/login" method="post" style="width: 30em; margin: 150px auto auto;">
   <h3>用户登录</h3>
+
+  <!-- 错误信息 -->
+  <div class=" input-group input-group-md">
+    <span th:text="${msg}"></span>
+  </div>
+  <br/>
   <div class=" input-group input-group-md">
     <span class="input-group-addon">
       <i class="glyphicon glyphicon-user"></i>
     </span>
     <input name="username" type="text" class="form-control"/>
-
   </div>
   <br/>
   <div class="input-group input-group-md">
